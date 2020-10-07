@@ -35,3 +35,11 @@ Add the attribute `tooltip="tooltip text content"` to all the elements you want 
 
 <button tooltip="Complete The Pepsi Challenge">Submit<button>
 ```
+
+
+## Install Other methods.
+
+```
+<link rel="stylesheet" href="dist/styles.css">
+<script src="dist/webpack.bundle.js"></script>
+```
