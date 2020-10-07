@@ -4,7 +4,9 @@ server: node_modules/
 	npm start
 
 build: node_modules/
+	cp src/styles.css dist/styles.css
 	npx ascjs src esm
+	npx rollup --config rollup/es.config.js
 	npx rollup --config rollup/babel.config.js
 	npx webpack --mode=development
 

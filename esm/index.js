@@ -4,7 +4,7 @@ const { createPopper } = require('@popperjs/core');
 
 require('./styles.css');
 
-const ID_TOOLTIP = '#tooltip';
+const ID_TOOLTIP = '#pep-tooltips';
 
 /**
  * Upgrades elements with the `tooltip` attribute to enable tooltips.
