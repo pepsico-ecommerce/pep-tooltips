@@ -4,7 +4,9 @@ server: node_modules/
 	npm start
 
 build: node_modules/
-	npx webpack
+	npx ascjs src esm
+	npx rollup --config rollup/babel.config.js
+	npx webpack --mode=development
 
 lint: node_modules/
 	npm run lint
