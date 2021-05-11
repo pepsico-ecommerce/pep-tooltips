@@ -39,7 +39,7 @@
 
       var body = this.element.getAttribute('tooltip'); // Skip if there is no tooltip text
 
-      if (body === '') {
+      if (body === '' || !body) {
         return;
       } // Replace the content in the element with the text value from the attribute.
 
