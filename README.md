@@ -5,7 +5,7 @@ Turn the attribute "tooltip" into tooltips with this drop in script using custom
 ```
 <div tooltip="Dollars per hour">$9,001</div>
 
-<button tooltip="We won't spam you!">Submit<button>
+<button tooltip="We won't spam you!">Submit</button>
 ```
 
 
