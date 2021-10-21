@@ -24,7 +24,7 @@ define('[tooltip]', {
     const placement = el.dataset?.tooltipPlacement || 'auto'; // https://popper.js.org/docs/v2/constructors/#placement
     const offsetSkidding = el.dataset?.tooltipOffsetSkidding || 1; // https://popper.js.org/docs/v2/modifiers/offset/#skidding-1
     const offsetDistance = el.dataset?.tooltipOffsetDistance || 1; // https://popper.js.org/docs/v2/modifiers/offset/#distance-1
-    const customClass = el.dataset?.tooltipClass || '';
+    const customClasses = el.dataset?.tooltipClass || null;
     const body = this.element.getAttribute('tooltip');
 
     // Skip if there is no tooltip text
@@ -34,8 +34,8 @@ define('[tooltip]', {
     // Replace the content in the element with the text value from the attribute.
     this.elmTooltip.innerHTML = body;
     // Apply custom class
-    if(customClass) { 
-      this.elmTooltip.classList.add(customClass);
+    if(customClasses) {
+      this.elmTooltip.classList.add(...customClasses.split(' ')) 
     }
 
     // Create a popper to manage the element's position.
@@ -55,11 +55,14 @@ define('[tooltip]', {
     this.elmTooltip.style.display = 'inherit';
   },
   onMouseleave() {
+    const el = this.element;
+    const customClasses = el.dataset?.tooltipClass || null;
     // Reset the tooltip element so it can be re-used.
     this.elmTooltip.innerHTML = '';
     this.elmTooltip.style.display = 'none';
-    const customClasses = this.elmTooltip.classList
-    Array.from(customClasses).forEach(cl => this.elmTooltip.classList.remove(cl));
+    if(customClasses) {
+      this.elmTooltip.classList.remove(...customClasses.split(' '))
+    }
     // remove the popper.
     this.popper && this.popper.destroy();
   },
