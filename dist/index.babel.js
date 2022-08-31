@@ -116,6 +116,11 @@
 
 
       this.popper && this.popper.destroy();
+    },
+    onFocusOut: function onFocusOut() {
+      // Close the tooltip when the element loses focus.
+      // This happens when React updates the element.
+      this.onMouseleave();
     }
   });
 
