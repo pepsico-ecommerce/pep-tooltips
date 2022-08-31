@@ -57,9 +57,4 @@ define('[tooltip]', {
     // remove the popper.
     this.popper && this.popper.destroy();
   },
-  onFocusOut() {
-    // Close the tooltip when the element loses focus.
-    // This happens when React updates the element.
-    this.onMouseleave();
-  },
 });

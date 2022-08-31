@@ -9,7 +9,7 @@
 
   require('./styles.css');
 
-  var ID_TOOLTIP = '#pep-tooltips';
+  var ID_TOOLTIP = '#tooltip';
   /**
    * Upgrades elements with the `tooltip` attribute to enable tooltips.
    * Positions the tooltip wrapper element
@@ -39,7 +39,7 @@
 
       var body = this.element.getAttribute('tooltip'); // Skip if there is no tooltip text
 
-      if (body === '' || !body) {
+      if (body === '') {
         return;
       } // Replace the content in the element with the text value from the attribute.
 
