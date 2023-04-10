@@ -13,3 +13,37 @@
   padding: calc(var(--base-size)*2);
   z-index: 90001;
 }
+
+#pep-tooltips [data-popper-arrow],
+#pep-tooltips [data-popper-arrow]::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#pep-tooltips [data-popper-arrow] {
+  visibility: hidden;
+}
+
+#pep-tooltips [data-popper-arrow]::before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+#pep-tooltips[data-popper-placement^='top'] > [data-popper-arrow] {
+  bottom: -4px;
+}
+
+#pep-tooltips[data-popper-placement^='bottom'] > [data-popper-arrow] {
+  top: -4px;
+}
+
+#pep-tooltips[data-popper-placement^='left'] > [data-popper-arrow] {
+  right: -4px;
+}
+
+#pep-tooltips[data-popper-placement^='right'] > [data-popper-arrow] {
+  left: -4px;
+}

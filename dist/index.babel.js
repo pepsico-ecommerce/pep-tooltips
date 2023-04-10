@@ -61,7 +61,7 @@
     },
 
     onMouseenter: function onMouseenter() {
-      var _el$dataset, _el$dataset2, _el$dataset3, _el$dataset4;
+      var _el$dataset, _el$dataset2, _el$dataset3, _el$dataset4, _el$dataset5;
 
       var el = this.element;
       var placement = ((_el$dataset = el.dataset) === null || _el$dataset === void 0 ? void 0 : _el$dataset.tooltipPlacement) || 'auto'; // https://popper.js.org/docs/v2/constructors/#placement
@@ -71,6 +71,7 @@
       var offsetDistance = ((_el$dataset3 = el.dataset) === null || _el$dataset3 === void 0 ? void 0 : _el$dataset3.tooltipOffsetDistance) || 1; // https://popper.js.org/docs/v2/modifiers/offset/#distance-1
 
       var customClasses = ((_el$dataset4 = el.dataset) === null || _el$dataset4 === void 0 ? void 0 : _el$dataset4.tooltipClass) || null;
+      var useArrow = ((_el$dataset5 = el.dataset) === null || _el$dataset5 === void 0 ? void 0 : _el$dataset5.tooltipArrow) || false;
       var body = this.element.getAttribute('tooltip'); // Skip if there is no tooltip text
 
       if (body === '' || !body) {
@@ -78,7 +79,14 @@
       } // Replace the content in the element with the text value from the attribute.
 
 
-      this.elmTooltip.innerHTML = body; // Apply custom class
+      this.elmTooltip.innerHTML = body; // if they want an arrow, append the div
+
+      if (useArrow) {
+        var elmArrow = document.createElement('div');
+        elmArrow.dataset.popperArrow = true;
+        this.elmTooltip.appendChild(elmArrow);
+      } // Apply custom class
+
 
       if (customClasses) {
         var _this$elmTooltip$clas;
@@ -100,10 +108,10 @@
       this.elmTooltip.style.display = 'inherit';
     },
     onMouseleave: function onMouseleave() {
-      var _el$dataset5;
+      var _el$dataset6;
 
       var el = this.element;
-      var customClasses = ((_el$dataset5 = el.dataset) === null || _el$dataset5 === void 0 ? void 0 : _el$dataset5.tooltipClass) || null; // Reset the tooltip element so it can be re-used.
+      var customClasses = ((_el$dataset6 = el.dataset) === null || _el$dataset6 === void 0 ? void 0 : _el$dataset6.tooltipClass) || null; // Reset the tooltip element so it can be re-used.
 
       this.elmTooltip.innerHTML = '';
       this.elmTooltip.style.display = 'none';
