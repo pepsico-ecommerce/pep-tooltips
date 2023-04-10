@@ -26,6 +26,7 @@ define('[tooltip]', {
     const offsetSkidding = el.dataset?.tooltipOffsetSkidding || 1; // https://popper.js.org/docs/v2/modifiers/offset/#skidding-1
     const offsetDistance = el.dataset?.tooltipOffsetDistance || 1; // https://popper.js.org/docs/v2/modifiers/offset/#distance-1
     const customClasses = el.dataset?.tooltipClass || null;
+    const useArrow = el.dataset?.tooltipArrow || false;
     const body = this.element.getAttribute('tooltip');
 
     // Skip if there is no tooltip text
@@ -34,6 +35,12 @@ define('[tooltip]', {
     }
     // Replace the content in the element with the text value from the attribute.
     this.elmTooltip.innerHTML = body;
+    // if they want an arrow, append the div
+    if (useArrow) {
+      const elmArrow = document.createElement('div');
+      elmArrow.dataset.popperArrow = true;
+      this.elmTooltip.appendChild(elmArrow);
+    }
     // Apply custom class
     if(customClasses) {
       this.elmTooltip.classList.add(...customClasses.split(' ')) 

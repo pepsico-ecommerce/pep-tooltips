@@ -37,7 +37,7 @@ Add the attribute `tooltip="tooltip text content"` to all the elements you want 
 ```
 
 ## Applying custom styles
-In order o apply custom styling, add `data-tooltip-class` to the element you want to show a tooltip.
+In order to apply custom styling, add `data-tooltip-class` to the element you want to show a tooltip.
 Then in corresponding CSS file add rules for `#pep-tooltips.custom-tooltip`
 
 ```
@@ -49,6 +49,20 @@ Then in corresponding CSS file add rules for `#pep-tooltips.custom-tooltip`
   width: 500px;
 }
 ```
+
+## Properties
+You can configure the tooltip with custom data attributes.
+
+* data-tooltip-class="custom-class"
+  * Adds `custom-class` to the tooltip container.
+* data-tooltip-arrow
+  * When set, enables the Arrow the points to the element.
+* data-tooltip-placement="auto"
+  * Sets the tooltip's placement. [offical docs](https://popper.js.org/docs/v2/constructors/#placement)
+* data-tooltip-offset-skidding
+  * [offical docs](https://popper.js.org/docs/v2/modifiers/offset/#skidding-1)
+* data-tooltip-offset-distance
+  * [offical docs](https://popper.js.org/docs/v2/modifiers/offset/#distance-1)
 
 
 ## Install Other methods.
