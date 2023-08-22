@@ -5,10 +5,9 @@ server: node_modules/
 
 build: node_modules/
 	cp src/styles.css dist/styles.css
-	npx ascjs src esm
-	# npx rollup --config rollup/es.config.js
-	npx rollup --config rollup/babel.config.js
-	npx webpack --mode=development
+	npx babel src -d dist
+	npx rollup -c rollup.config.js
+	npx rollup -c rollup.config.esm.js
 
 lint: node_modules/
 	npm run lint
@@ -17,6 +16,7 @@ clean:
 	-rm -f package-lock.json
 	-rm -r ./node_modules
 	-npm cache verify
+	-rm dist/*
 
 node_modules/: package.json
 	npm install
