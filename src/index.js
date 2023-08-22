@@ -1,8 +1,6 @@
 import { define } from 'wicked-elements';
 import { createPopper } from '@popperjs/core';
 
-import './styles.css';
-
 const ID_TOOLTIP = '#pep-tooltips';
 
 /**
